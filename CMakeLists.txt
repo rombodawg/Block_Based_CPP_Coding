@@ -1,0 +1,35 @@
+cmake_minimum_required(VERSION 3.16)
+project(CppCircuitLab VERSION 1.0.0 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+if(WIN32)
+    add_executable(CppCircuitLab WIN32 src/cpp_circuit_lab.cpp)
+    target_link_libraries(CppCircuitLab PRIVATE comdlg32 shell32 gdi32 user32)
+    if(MSVC)
+        target_compile_options(CppCircuitLab PRIVATE /W4 /utf-8 /permissive-)
+    else()
+        target_compile_options(CppCircuitLab PRIVATE -Wall -Wextra -Wpedantic)
+    endif()
+else()
+    # The same source exposes a small command-line test/preview mode off Windows.
+    add_executable(CppCircuitLab src/cpp_circuit_lab.cpp)
+    target_compile_options(CppCircuitLab PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+enable_testing()
+add_executable(CppCircuitLabTests tests/core_tests.cpp)
+target_include_directories(CppCircuitLabTests PRIVATE src)
+if(MSVC)
+    target_compile_options(CppCircuitLabTests PRIVATE /W4 /utf-8 /permissive-)
+else()
+    target_compile_options(CppCircuitLabTests PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+add_test(NAME CppCircuitLab_CoreTests COMMAND CppCircuitLabTests)
+
+if(NOT WIN32)
+    add_test(NAME CppCircuitLab_EndToEnd
+        COMMAND bash ${CMAKE_CURRENT_SOURCE_DIR}/tests/end_to_end.sh $<TARGET_FILE:CppCircuitLab> ${CMAKE_CXX_COMPILER})
+endif()
