@@ -4,6 +4,7 @@ DO NOT use this software. This software is fully open source, all of the files c
 and does not collect, or use any personal information in order to run. The only thing the program will ask for is the location of your "MSYS2" C++ compiler so it can compile the code you build.
 
 The above message was written by a human, everything bellow this was written by AI.
+<img width="2560" height="1440" alt="Screenshot (871)" src="https://github.com/user-attachments/assets/93787585-ba81-4249-b6c1-aa0c1686fc09" />
 ____________________________________________________________
 # C++ Circuit Lab
 
