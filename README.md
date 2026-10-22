@@ -1,3 +1,10 @@
+# IMPORTANT NOTE:
+I myself do not know how to code, and Vibe coded this program so I could use it to learn C++. If that bothers you DO NOT use this software
+This software is fully open source, all of the files can be inspected for safety and quality. This program does not require the internet to work
+and does not collect, or use any personal information in order to run. The only thing the program will ask for is the location of your "MSYS2" C++ compiler so it can compile the code you build.
+
+The above message was written by a human, everything bellow this was written by AI.
+____________________________________________________________
 # C++ Circuit Lab
 
 **Learn C++ by building programs from blocks instead of typing the source code.** This is a native Windows desktop application that shows the C++ produced by the grid, compiles it with your local C++ compiler, runs it, and lets you experiment.
